@@ -24,7 +24,7 @@ git clone https://github.com/thtrieu/darkflow.git
 This contains all the code necessary to train and run a YOLOv2 model in python
 To install dependencies, run the commands:
 pip install tensorflow
-install opencv-contrib-python
+pip install opencv-contrib-python
 pip install numpy
 
 Training:

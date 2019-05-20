@@ -8,7 +8,7 @@ for i =1:numImages
     numCirc = length(circleX);
     fprintf(fileID,'%d\r\n',numCirc);
     for j=1:numCirc
-        fprintf(fileID,'%d %d %d %d\r\n',[circleY(j)+10,circleX(j)+10,circleY(j)-10,circleX(j)-10]);
+        fprintf(fileID,'%d %d %d %d\r\n',[circleY(j)-10,circleX(j)-10,circleY(j)+10,circleX(j)+10]);
         
     end
     fclose(fileID);
