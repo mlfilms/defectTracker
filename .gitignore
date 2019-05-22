@@ -1,0 +1,4 @@
+darkflow/backup/
+darkflow/ckpt/
+darkflow/built_graph/
+darkflow/bin/

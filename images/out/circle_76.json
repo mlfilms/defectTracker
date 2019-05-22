@@ -1,0 +1,1 @@
+"[{'label': 'class', 'confidence': 0.9137024, 'topleft': {'x': 99, 'y': 18}, 'bottomright': {'x': 119, 'y': 39}}, {'label': 'class', 'confidence': 0.94737947, 'topleft': {'x': 166, 'y': 146}, 'bottomright': {'x': 186, 'y': 167}}, {'label': 'class', 'confidence': 0.9871588, 'topleft': {'x': 218, 'y': 168}, 'bottomright': {'x': 237, 'y': 187}}]"
