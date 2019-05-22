@@ -231,6 +231,7 @@ class LabelTool():
             for bbox in self.bboxList:
                 f.write(' '.join(map(str, bbox)) + '\n')
         im = Image.open(self.imagepath)
+        print(self.bboxList)
         createXMLAnnotation(os.path.split(self.imagepath)[-1], self.bboxList, im.size, self.xmlfilename)
         print 'Image No. %d saved' %(self.cur)
 
