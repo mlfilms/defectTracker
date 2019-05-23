@@ -1,0 +1,3 @@
+[submodule "ImageAnnotation"]
+	path = ImageAnnotation
+	url = https://github.com/MLFilms/ImageAnnotation.git
