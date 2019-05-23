@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<annotation>
+  <folder>images</folder>
+  <filename>C:\Users\Eric Minor\TrackingML\defectTracker\imagesCLEAN\houghAnnotated\circle_105</filename>
+  <segmented>0</segmented>
+  <size>
+    <width>1280</width>
+    <height>800</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <name>class</name>
+    <pose>center</pose>
+    <truncated>1</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>30</xmin>
+      <xmax>50</xmax>
+      <ymin>26</ymin>
+      <ymax>48</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>class</name>
+    <pose>center</pose>
+    <truncated>1</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>87</xmin>
+      <xmax>107</xmax>
+      <ymin>129</ymin>
+      <ymax>151</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>class</name>
+    <pose>center</pose>
+    <truncated>1</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>77</xmin>
+      <xmax>97</xmax>
+      <ymin>188</ymin>
+      <ymax>210</ymax>
+    </bndbox>
+  </object>
+</annotation>

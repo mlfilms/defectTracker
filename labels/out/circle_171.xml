@@ -9,7 +9,7 @@
     <depth>3</depth>
   </size>
   <object>
-    <name>defect</name>
+    <name>class</name>
     <pose>center</pose>
     <truncated>1</truncated>
     <difficult>0</difficult>
@@ -21,7 +21,7 @@
     </bndbox>
   </object>
   <object>
-    <name>defect</name>
+    <name>class</name>
     <pose>center</pose>
     <truncated>1</truncated>
     <difficult>0</difficult>
@@ -33,7 +33,7 @@
     </bndbox>
   </object>
   <object>
-    <name>defect</name>
+    <name>class</name>
     <pose>center</pose>
     <truncated>1</truncated>
     <difficult>0</difficult>
@@ -45,7 +45,7 @@
     </bndbox>
   </object>
   <object>
-    <name>defect</name>
+    <name>class</name>
     <pose>center</pose>
     <truncated>1</truncated>
     <difficult>0</difficult>
@@ -57,7 +57,7 @@
     </bndbox>
   </object>
   <object>
-    <name>defect</name>
+    <name>class</name>
     <pose>center</pose>
     <truncated>1</truncated>
     <difficult>0</difficult>
