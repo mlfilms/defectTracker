@@ -44,21 +44,34 @@ options = {"model": "cfg/yolo_custom2.cfg",
            "load": -1,
            "gpu": 1.0,
 		   "threshold": 0.1,
-		   "labels": "one_label.txt"
+		   "labels": "one_label.txt",
+           "json": True
 		   }
 tfnet = TFNet(options)
-targetDir = "E:\Projects\defectTracker\images"
+targetDir = 'E:\\Projects\\fake\\defectTracker\\images'
+print(targetDir)   
+outDir = targetDir+"\\out\\"
 
-outDir = targetDir+"\out\\"
 if not os.path.exists(outDir):
     os.makedirs(outDir)
-		   
-for filename in glob.glob(targetDir+"\*.jpg"):
+    
+    
+filePattern = 	targetDir+"\\*.jpg"   
+
+for filename in glob.glob(filePattern):
+ 
     (im,result) = processImage(filename,tfnet);
     sections = filename.split("\\")
     imName = sections[-1]
     im.save(outDir+imName)
-    dataJSON = json.dumps(str(result))
+    
+    numDets = len(result)
+    
+    for i in range(numDets):
+        result[i]['confidence'] = float(result[i]['confidence'])
+    
+    #print(result)
+    dataJSON = json.dumps(result)
     prePost = imName.split(".")
     noEnd = prePost[0]
     
