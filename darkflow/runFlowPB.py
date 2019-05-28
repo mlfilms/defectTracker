@@ -40,8 +40,8 @@ def processImage(filename, tfnet):
     #im.save("your_file.jpeg")
 
 
-options = {"model": "cfg/yolo_custom2.cfg", 
-           "load": -1,
+options = {"metaLoad": "bin/yolo_custom2.meta", 
+           "pbLoad": "bin/yolo_custom2.pb",
            "gpu": 1.0,
 		   "threshold": 0.1,
 		   "labels": "one_label.txt",
