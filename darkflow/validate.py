@@ -1,12 +1,19 @@
 import shutil
 import glob
 import os
+import sys
 
-truthPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/BBox-Label-Tool/AnnotationsXML/001/")
-detectionPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/images/out/")
 
-mAPTruthPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/mAP/input/ground-truth/")
-mAPDetectionPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/mAP/input/detection-results")
+truthPath = os.path.abspath("E:\\Projects\\fake\\defectTracker\\labelsCLEAN\out")
+detectionPath = os.path.abspath("E:\\Projects\\fake\defectTracker\\imagesCLEAN\\out\\")
+mAPPath = os.path.abspath("E:\\Projects\\fake\\defectTracker\\mAP")
+
+
+mAPTruthPath = os.path.join(mAPPath,"input\\ground-truth\\")
+#os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/mAP/input/ground-truth/")
+mAPDetectionPath = os.path.join(mAPPath,"input\\detection-results\\")
+#os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/mAP/input/detection-results")
+mAPScriptsPath = os.path.join(mAPPath, "scripts\\extra\\")
 
 
 def wipeFolder(folder):
@@ -43,3 +50,17 @@ for filename in glob.glob(filePattern):
     newFilename = os.path.join(mAPDetectionPath,file)
     shutil.copyfile(filename,newFilename)
 	
+sys.path.append(mAPScriptsPath)
+os.chdir(mAPScriptsPath)
+print(os.getcwd())
+from convert_dr_darkflow_jsonF import convertJSON
+from convert_gt_xmlF import convertXML
+convertJSON()
+convertXML()
+
+sys.path.append(mAPPath)
+os.chdir(mAPPath)
+
+from mAPVal import mAPVal
+
+mAPVal()
