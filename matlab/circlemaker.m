@@ -1,11 +1,21 @@
 numImages = 200;
 
+imageFolder = 'images';
+labelFolder = 'labels';
+
+if ~exist(imageFolder,'dir')
+   mkdir(imageFolder) 
+end
+
+if ~exist(labelFolder,'dir')
+   mkdir(labelFolder) 
+end
+
 
 for i =1:numImages
     [img,circleX,circleY] = generateImg();
-    imwrite(img, strcat('images/circle_',num2str(i),'.jpg'));
-    fileID = fopen(strcat('labels/circle_',num2str(i),'.txt'),'w');
-    numCirc = length(circleX);
+    imwrite(img, strcat(imageFolder,'/circle_',num2str(i),'.jpg'));
+    fileID = fopen(strcat(labelFolder,'/circle_',num2str(i),'.txt'),'w');    numCirc = length(circleX);
     fprintf(fileID,'%d\r\n',numCirc);
     for j=1:numCirc
         fprintf(fileID,'%d %d %d %d\r\n',[circleY(j)-10,circleX(j)-10,circleY(j)+10,circleX(j)+10]);

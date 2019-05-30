@@ -48,7 +48,7 @@ options = {"model": "cfg/yolo_custom2.cfg",
            "json": True
 		   }
 tfnet = TFNet(options)
-targetDir = 'C:\\Users\\Eric Minor\\TrackingML\\defectTracker\\images'
+targetDir = 'E:/Projects/fake/defectTracker/matlab/imagesCLEAN'
 print(targetDir)   
 outDir = targetDir+"\\out\\"
 

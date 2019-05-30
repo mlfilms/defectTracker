@@ -12,7 +12,7 @@ run "setup.py build_ext --inplace"
 Tools for labeling:
 BBox-Label-Tool allows you to draw bounding boxes on images
 Place the images inside the BBox-Label-Tool folder inside Images\001 (or other folder)
-Inside the main BBox-Label-Tool folder, run python main.py. Enter the folder number in the top and click load
+Inside the main BBox-Label-Tool folder, run python main.py. Enter the folder number in the top and click load. Must use python 2
 Draw boxes around the objects you want detected. Annotations will be output into AnnotationsXML
 For converting files containing bounding box coordinates into properly formatted xml annotations, use the tools inside ImageAnnotation
 

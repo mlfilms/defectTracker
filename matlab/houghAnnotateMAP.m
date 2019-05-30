@@ -1,4 +1,4 @@
-folder = 'C:\Users\Eric Minor\TrackingML\defectTracker\imagesCLEAN\';
+folder = 'E:\Projects\fake\defectTracker\matlab\imagesCLEAN\';
 ext = 'jpg';
 
 annotateFolder = strcat(folder,'houghAnnotated');

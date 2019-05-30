@@ -8,6 +8,9 @@ import glob
 import os
 import json
 
+
+
+
 def boxing(original_img , predictions):
     newImage = np.copy(original_img)
 
@@ -40,15 +43,15 @@ def processImage(filename, tfnet):
     #im.save("your_file.jpeg")
 
 
-options = {"metaLoad": "bin/yolo_custom2.meta", 
-           "pbLoad": "bin/yolo_custom2.pb",
+options = {"metaLoad": "bin/houghClean.meta", 
+           "pbLoad": "bin/houghClean.pb",
            "gpu": 1.0,
 		   "threshold": 0.1,
 		   "labels": "one_label.txt",
            "json": True
 		   }
 tfnet = TFNet(options)
-targetDir = 'C:\\Users\\Eric Minor\\TrackingML\\defectTracker\\images'
+targetDir = 'E:/Projects/fake/defectTracker/matlab/images'
 print(targetDir)   
 outDir = targetDir+"\\out\\"
 

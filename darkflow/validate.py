@@ -4,8 +4,8 @@ import os
 import sys
 
 
-truthPath = os.path.abspath("E:\\Projects\\fake\\defectTracker\\labelsCLEAN\out")
-detectionPath = os.path.abspath("E:\\Projects\\fake\defectTracker\\imagesCLEAN\\out\\")
+truthPath = os.path.abspath("E:\\Projects\\fake\\defectTracker\\matlab\\labelsCLEAN\out") #should be xml
+detectionPath = os.path.abspath("E:/Projects/fake/defectTracker/matlab/imagesCLEAN/out") #should be .json
 mAPPath = os.path.abspath("E:\\Projects\\fake\\defectTracker\\mAP")
 
 
