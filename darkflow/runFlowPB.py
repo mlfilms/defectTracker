@@ -71,12 +71,12 @@ def processImage(filename, tfnet,box):
 options = {"metaLoad": "bin/defectB.meta", 
            "pbLoad": "bin/defectB.pb",
            "gpu": 1.0,
-		   "threshold": 0.3,
+		   "threshold": 0.1,
 		   "labels": "one_label.txt",
            "json": True
 		   }
 tfnet = TFNet(options)
-targetDir = 'E:\\Projects\\fake\\simulations\\fortran\\LandauGin\\dataFolder\\accumulated'
+targetDir = 'C:/Users/Eric Minor/TrackingML/simulations/fortran/LandauGin/dataFolder/accumulated'
 print(targetDir)   
 outDir = targetDir+"\\outIMG\\"
 
