@@ -13,7 +13,8 @@ end
 
 
 for i =1:numImages
-    [img,circleX,circleY] = generateImg();
+    noise = rand(1)/5;
+    [img,circleX,circleY] = generateImg(noise);
     imwrite(img, strcat(imageFolder,'/circle_',num2str(i),'.jpg'));
     fileID = fopen(strcat(labelFolder,'/circle_',num2str(i),'.txt'),'w');
     numCirc = length(circleX);
@@ -28,7 +29,7 @@ end
 
 
 
-function [img,circleX,circleY] = generateImg()
+function [img,circleX,circleY] = generateImg(noise)
 
     img = zeros(250,250,'uint8');
     circleX = randi(230,1,5,'double')+10;
@@ -43,8 +44,8 @@ function [img,circleX,circleY] = generateImg()
        img(circlePixels) =  randi(255,1,1,'uint8');
 
     end
-    img = imnoise(img,'gaussian');
-    
+    img = imnoise(img,'salt & pepper',noise);
+    img = imnoise(img,'gaussian',noise);
 
     %valid = zeros(1024,1024,'logical');
     %[Y,X] = meshgrid(1:1024,1:1024);

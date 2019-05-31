@@ -21,7 +21,7 @@ img = imread(name);
 
 
 
-[centers, radii, metric] = imfindcircles(img,[4 20],'Sensitivity',0.90);
+[centers, radii, metric] = imfindcircles(img,[4 20],'Sensitivity',0.90,'ObjectPolarity','bright');
 %viscircles(centers,radii,'EdgeColor','b');
 
 

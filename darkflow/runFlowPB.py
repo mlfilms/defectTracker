@@ -8,10 +8,9 @@ import glob
 import os
 import json
 
+box = 0 # 0 draws a box, 1 plots a point
 
-
-
-def boxing(original_img , predictions):
+def boxing(original_img , predictions, boxSize):
     newImage = np.copy(original_img)
 
     for result in predictions:
@@ -29,31 +28,57 @@ def boxing(original_img , predictions):
             #newImage = cv2.putText(newImage, label, (top_x, top_y-5), cv2.FONT_HERSHEY_COMPLEX_SMALL , 0.8, (0, 230, 0), 1, cv2.LINE_AA)
         
     return newImage
+    
+    
+def pointing(original_img , predictions):
+    newImage = np.copy(original_img)
+
+    for result in predictions:
+        top_x = result['topleft']['x']
+        top_y = result['topleft']['y']
+
+        btm_x = result['bottomright']['x']
+        btm_y = result['bottomright']['y']
+        
+        x = int((top_x+btm_x)/2)
+        y = int((top_y+btm_y)/2)
+    
+        confidence = result['confidence']
+        label = result['label'] + " " + str(round(confidence, 3))
+        
+        if confidence > 0.3:
+            newImage = cv2.circle(newImage, (x, y), 2, (255,0,0), -1)
+            #newImage = cv2.putText(newImage, label, (top_x, top_y-5), cv2.FONT_HERSHEY_COMPLEX_SMALL , 0.8, (0, 230, 0), 1, cv2.LINE_AA)
+        
+    return newImage
 	
 	
 	
 	
-def processImage(filename, tfnet):
+def processImage(filename, tfnet,box):
     imgcv = cv2.imread(filename)
     result = tfnet.return_predict(imgcv)
     #print(result)
-    newImage = boxing(imgcv, result)
+    if box ==1:
+        newImage = boxing(imgcv, result)
+    else:
+        newImage = pointing(imgcv, result)
     im = Image.fromarray(newImage)
     return (im,result)
     #im.save("your_file.jpeg")
 
 
-options = {"metaLoad": "bin/houghClean.meta", 
-           "pbLoad": "bin/houghClean.pb",
+options = {"metaLoad": "bin/defectB.meta", 
+           "pbLoad": "bin/defectB.pb",
            "gpu": 1.0,
-		   "threshold": 0.1,
+		   "threshold": 0.3,
 		   "labels": "one_label.txt",
            "json": True
 		   }
 tfnet = TFNet(options)
-targetDir = 'E:/Projects/fake/defectTracker/matlab/images'
+targetDir = 'E:\\Projects\\fake\\simulations\\fortran\\LandauGin\\dataFolder\\accumulated'
 print(targetDir)   
-outDir = targetDir+"\\out\\"
+outDir = targetDir+"\\outIMG\\"
 
 if not os.path.exists(outDir):
     os.makedirs(outDir)
@@ -63,7 +88,7 @@ filePattern = 	targetDir+"\\*.jpg"
 
 for filename in glob.glob(filePattern):
  
-    (im,result) = processImage(filename,tfnet);
+    (im,result) = processImage(filename,tfnet,box);
     sections = filename.split("\\")
     imName = sections[-1]
     im.save(outDir+imName)
