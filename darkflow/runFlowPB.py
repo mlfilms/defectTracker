@@ -68,15 +68,16 @@ def processImage(filename, tfnet,box):
     #im.save("your_file.jpeg")
 
 
-options = {"metaLoad": "bin/defectClean.meta", 
-           "pbLoad": "bin/defectClean.pb",
+options = {"metaLoad": "bin/defectB.meta", 
+           "pbLoad": "bin/defectB.pb",
            "gpu": 1.0,
 		   "threshold": 0.1,
 		   "labels": "one_label.txt",
            "json": True
 		   }
 tfnet = TFNet(options)
-targetDir = 'E:/Projects/fake/simulations/randomDefects/accumulated'
+targetDir = 'C:/Users/Eric Minor/TrackingML/simulations/fortran/LandauGin/dataFolder/accumulated/outIMG'
+ext = 'jpg'
 print(targetDir)   
 outDir = targetDir+"\\outIMG\\"
 
@@ -84,7 +85,7 @@ if not os.path.exists(outDir):
     os.makedirs(outDir)
     
     
-filePattern = 	targetDir+"\\*.jpg"   
+filePattern = 	targetDir+"\\*." + ext   
 
 for filename in glob.glob(filePattern):
  
