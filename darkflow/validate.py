@@ -4,9 +4,9 @@ import os
 import sys
 
 
-truthPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/simulations/fortran/LandauGin/dataFolder/accumulated/out") #should be xml
-detectionPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/simulations/fortran/LandauGin/dataFolder/accumulated/outIMG") #should be .json
-mAPPath = os.path.abspath("C:/Users/Eric Minor/TrackingML/defectTracker/mAP") #path to your map folder
+truthPath = os.path.abspath("E:/Projects/fake/simulations/randomDefects/accumulated/out") #should be xml
+detectionPath = os.path.abspath("E:/Projects/fake/simulations/randomDefects/accumulated/outIMG") #should be .json
+mAPPath = os.path.abspath("E:/Projects/fake/defectTracker/mAP") #path to your map folder
 
 
 mAPTruthPath = os.path.join(mAPPath,"input\\ground-truth\\")

@@ -7,9 +7,9 @@ options = {"model": "cfg/yolo_custom2.cfg",
            "epoch": 100,
            "gpu": 1.0,
            "train": True,
-           "annotation": "E:/Projects/fake/simulations/fortran/LandauGin/dataFolder/accumulated/out",
+           "annotation": "E:/Projects/fake/simulations/randomDefects/accumulated/out",
 		   "labels": "one_label.txt",
-           "dataset": "E:/Projects/fake/simulations/fortran/LandauGin/dataFolder/accumulated"}
+           "dataset": "E:/Projects/fake/simulations/randomDefects/accumulated"}
            
 tfnet = TFNet(options)
 tfnet.train()

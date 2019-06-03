@@ -13,7 +13,7 @@ end
 
 
 for i =1:numImages
-    noise = rand(1)/5;
+    noise = 0.02%rand(1)/5;
     [img,circleX,circleY] = generateImg(noise);
     imwrite(img, strcat(imageFolder,'/circle_',num2str(i),'.jpg'));
     fileID = fopen(strcat(labelFolder,'/circle_',num2str(i),'.txt'),'w');
