@@ -95,7 +95,7 @@ def processImage(filename, tfnet,box):
 options = {"metaLoad": "bin/defectFull.meta", 
            "pbLoad": "bin/defectFull.pb",
            "gpu": 1.0,
-		   "threshold": 0.6,
+		   "threshold": 0.3,
 		   "labels": "one_label.txt",
            "json": True
 		   }
