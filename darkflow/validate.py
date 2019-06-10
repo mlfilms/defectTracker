@@ -4,8 +4,8 @@ import os
 import sys
 
 
-truthPath = os.path.abspath("E:/Projects/fake/simulations/randomDefects/accumulated/out") #should be xml
-detectionPath = os.path.abspath("E:/Projects/fake/simulations/randomDefects/accumulated/outIMG") #should be .json
+truthPath = os.path.abspath("E:/Projects/fake/imageData/annotations/csv/out") #should be xml
+detectionPath = os.path.abspath("E:/Projects/fake/imageData/annotations/corrected/outIMG") #should be .json
 mAPPath = os.path.abspath("E:/Projects/fake/defectTracker/mAP") #path to your map folder
 
 
@@ -61,6 +61,6 @@ convertXML()
 sys.path.append(mAPPath)
 os.chdir(mAPPath)
 
-from mAPVal import mAPVal
+from mAPValDist import mAPVal
 
-mAPVal()
+mAPVal(20)

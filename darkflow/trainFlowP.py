@@ -7,10 +7,10 @@ options = {"model": "cfg/yolo_custom2.cfg",
            "epoch": 1,
            "gpu": 1.0,
            "train": True,
-           "lr": 1e-6,
+           "lr": 1e-5,
            "annotation": "E:/Projects/fake/simulations/randomDefects/accumulated/out",
 		   "labels": "one_label.txt",
-           "dataset": "E:/Projects/fake/simulations/randomDefects/accumulated"}
+           "dataset": "E:/Projects/fake/simulations/randomDefects/accumulated/outMess"}
            
 tfnet = TFNet(options)
 tfnet.train()
