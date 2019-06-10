@@ -544,13 +544,11 @@ def mAPVal(matchDist):
                 gt_file = TEMP_FILES_PATH + "/" + file_id + "_ground_truth.json"
                 ground_truth_data = json.load(open(gt_file))
                 ovmax = -1
-<<<<<<< HEAD
+
                 minDist = 100000
                 gt_match = -1
-=======
-                gt_match = -1
-                minDist = 10000000
->>>>>>> 71d1eff4b4ae6b2d2e452e782c9ae93e19a2de75
+
+
                 # load detected object bounding-box
                 bb = [ float(x) for x in detection["bbox"].split() ]
                 for obj in ground_truth_data:
@@ -565,16 +563,6 @@ def mAPVal(matchDist):
                         bbY = (bb[3]+bb[1])/2
 
                         bbgtX = (bbgt[2]+bbgt[0])/2
-<<<<<<< HEAD
-                        bbgtY = (bbgt[3]+bbgt[1])/2   
-
-                        dist =  math.sqrt((bbX-bbgtX)**2 + (bbY-bbgtY)**2)
-
-                        if dist<minDist:
-                            minDist = dist
-                            gt_match = obj
-                        
-=======
                         bbgtY = (bbgt[3]+bbgt[1])/2
 
                         dist = math.sqrt((bbX-bbgtX)**2 + (bbY-bbgtY)**2)
@@ -584,7 +572,6 @@ def mAPVal(matchDist):
                             minDist = dist
 
 
->>>>>>> 71d1eff4b4ae6b2d2e452e782c9ae93e19a2de75
                         if iw > 0 and ih > 0:
                             # compute overlap (IoU) = area of intersection / area of union
                             ua = (bb[2] - bb[0] + 1) * (bb[3] - bb[1] + 1) + (bbgt[2] - bbgt[0]
@@ -593,11 +580,6 @@ def mAPVal(matchDist):
                             #if ov > ovmax:
                             #    ovmax = ov
                             #    gt_match = obj
-<<<<<<< HEAD
-                        
-=======
-
->>>>>>> 71d1eff4b4ae6b2d2e452e782c9ae93e19a2de75
                 # assign detection as true positive/don't care/false positive
                 if show_animation:
                     status = "NO MATCH FOUND!" # status is only used in the animation
@@ -627,13 +609,8 @@ def mAPVal(matchDist):
                 else:
                     # false positive
                     fp[idx] = 1
-<<<<<<< HEAD
-                    if ovmax > 0:
-                        status = "INSUFFICIENT OVERLAP"
-=======
                     #if ovmax > 0:
                     #    status = "INSUFFICIENT OVERLAP"
->>>>>>> 71d1eff4b4ae6b2d2e452e782c9ae93e19a2de75
 
                 """
                  Draw image to show animation

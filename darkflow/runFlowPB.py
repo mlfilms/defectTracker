@@ -91,16 +91,18 @@ def processImage(filename, tfnet,box):
     return (im,result)
     #im.save("your_file.jpeg")
 
+with open('config.json') as json_config:
+    config = json.load(json_config)
 
-options = {"metaLoad": "bin/defectFull.meta", 
-           "pbLoad": "bin/defectFull.pb",
-           "gpu": 1.0,
-		   "threshold": 0.3,
-		   "labels": "one_label.txt",
-           "json": True
+options = {"metaLoad": config["meta_file"], 
+           "pbLoad": config["pb_file"],
+           "gpu": config["gpu_usage"],
+		   "threshold": config["threshold"],
+		   "labels": config["labels_file"],
+           "json": config["json"]
 		   }
 tfnet = TFNet(options)
-targetDir = "E:/Projects/fake/imageData/annotations/corrected"
+targetDir = config["run_directory"]
 #'E:/Projects/fake/data/defectData/corrected'
 print(targetDir)   
 outDir = targetDir+"\\outIMG\\"
@@ -123,7 +125,7 @@ else:
     xy.append(0)
     # Keep presets   
 '''    
-filePattern = 	targetDir+"\\*.tif"   
+filePattern = 	targetDir+"\\*."+config["image_ext"]   
 
 for filename in glob.glob(filePattern):
  

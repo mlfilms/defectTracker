@@ -1,16 +1,21 @@
 from darkflow.net.build import TFNet
 import cv2
+import json
 
-options = {"model": "cfg/yolo_custom2.cfg", 
+with open('config.json') as json_config:
+    config = json.load(json_config)
+
+
+options = {"model": config["model"], 
            "load": -1,
-           "batch": 8,
-           "epoch": 1,
-           "gpu": 1.0,
+           "batch": config["batch_size"],
+           "epoch": config["epoch"],
+           "gpu": config["gpu_usage"],
            "train": True,
-           "lr": 1e-5,
-           "annotation": "E:/Projects/fake/simulations/randomDefects/accumulated/out",
-		   "labels": "one_label.txt",
-           "dataset": "E:/Projects/fake/simulations/randomDefects/accumulated/outMess"}
+           "lr": config["learning_rate"],
+           "annotation": config["training_annotations"],
+		   "labels": config["labels_file"],
+           "dataset": config["training_images"]}
            
 tfnet = TFNet(options)
 tfnet.train()

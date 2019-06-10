@@ -2,11 +2,14 @@ import shutil
 import glob
 import os
 import sys
+import json
 
+with open('config.json') as json_config:
+    config = json.load(json_config)
 
-truthPath = os.path.abspath("E:/Projects/fake/imageData/annotations/csv/out") #should be xml
-detectionPath = os.path.abspath("E:/Projects/fake/imageData/annotations/corrected/outIMG") #should be .json
-mAPPath = os.path.abspath("E:/Projects/fake/defectTracker/mAP") #path to your map folder
+truthPath = os.path.abspath(config["validation_truth_path"]) #should be xml
+detectionPath = os.path.abspath(config["validation_detection_path"]) #should be .json
+mAPPath = os.path.abspath(config["mAPPath"]) #path to your map folder
 
 
 mAPTruthPath = os.path.join(mAPPath,"input\\ground-truth\\")
